@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Column.css'
 import Task from './Task'
 import { useStore } from '../zustand/store'
@@ -67,4 +67,17 @@ function Column({ state }) {
   )
 }
 
-export default Column
+export default Column;
+
+function RefTest(){
+  const ref = useRef();
+  useEffect(()=>{
+    useStore.subscribe(
+      (store)=> store.tasks,
+      (tasks) =>{
+        ref.current = tasks;
+      }
+    )
+  },[]);
+  return ref.current;
+}

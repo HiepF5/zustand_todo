@@ -14,7 +14,7 @@ function Task({ title }) {
       <div className='bottomWrapper'>
         <div><img src={trash} alt="" onClick={()=>{deleteTask(task.title)}} /></div>
         <div className={classNames('status', task.state)}>{task.state}</div>
-        {console.log(task)}
+        {/* {console.log(task)} */}
       </div>
     </div>
   )
