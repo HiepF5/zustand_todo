@@ -30,12 +30,12 @@ const log = (config) => (set, get, api) =>
     get,
     api
   )
-export const useStore =subscribeWithSelector( create(log(persist(devtools(store), { name: 'store' }))));
+export const useStore =create(log(persist(devtools(store), { name: 'store' })));
 
-useStore.subscribe(
-  (store=> store.tasks),
-  (newTasks, prevTasks) => {
-    useStore.setState({
-      tasksInOngoing: newTasks.filter((task) => task.state === 'ONGOING').length
-    })
-})
+// useStore.subscribe(
+//   (store=> store.tasks),
+//   (newTasks, prevTasks) => {
+//     useStore.setState({
+//       tasksInOngoing: newTasks.filter((task) => task.state === 'ONGOING').length
+//     })
+// })
